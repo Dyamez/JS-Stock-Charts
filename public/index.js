@@ -36,13 +36,13 @@ async function main() {
     new Chart(highestPriceChartCanvas.getContext('2d'), { 
         type: 'bar',
         data: {
-            labels: stocks[0].values.map,//(value => value.highest),
+            labels: ['GME', 'MSFT', 'DIS', 'BNTX'],
             datasets: stocks.map( stock => ({
                 label: stock.meta.symbol,
-                data:  [165, 159, 280, 281, 356, 455, 540],//stock.values.map(value => parseFloat(value.high)),
-                //backgroundColor:  getBarColor(stock.meta.symbol),
-                //borderColor: getBarColor(stock.meta.symbol),
-                
+                data:  [50, 100, 150, 200, 250, 300, 350],//stock.values.map(value => parseFloat(value.high)),
+                //backgroundColor:  ['purple', 'yellow', 'orange', 'silver'],
+                //borderColor: ['red', 'green', 'blue', 'violet'],
+                /*
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(255, 159, 64, 0.2)',
@@ -60,13 +60,28 @@ async function main() {
                     'rgb(54, 162, 235)',
                     'rgb(153, 102, 255)',
                     'rgb(201, 203, 207)'
-                  ],
+                  ],*/
                   borderWidth: 1 
+            //}])          
         }))
-           
+                
         }
     });
-
+/*
+    new Chart(highestPriceChartCanvas,getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: ['GME', 'MSFT', 'DIS', 'BNTX'],
+            datasets: [{
+                label: stock.meta.symbol,
+                data: [50, 100, 150, 200, 250, 300, 350],
+                backgroundColor:  ['purple', 'yellow', 'orange', 'silver'],
+                borderColor: ['red', 'green', 'blue', 'violet'],
+                borderWidth: 1
+            }]
+        }
+    });
+*/
     
     
     function getColor(stock){
@@ -83,7 +98,7 @@ async function main() {
             return 'rgba(166, 43, 158, 0.7)'
         }
     }
-
+/*
     function getBarColor(stock){
         if(stock === "GME"){
             return 'rgba(61, 161, 61, 0.7)'
@@ -97,7 +112,10 @@ async function main() {
         if(stock === "BNTX"){
             return 'rgba(166, 43, 158, 0.7)'
         }
+        
     }
-   
+*/   
 }
 main() 
+
+//Apologies for the messy code and left over psudo codes.
