@@ -18,7 +18,7 @@ async function main() {
 
     //console.log(chart)
     
-    //console.log(stocks[0].values)      
+    console.log(stocks[0].values)      
     
     new Chart(timeChartCanvas.getContext('2d'), {
         type: 'line',
@@ -32,20 +32,41 @@ async function main() {
             }))
         }
     });
-/*
-    new Chart(highestPriceChartCanvas.getContext('2d'), {
-        type: 'line',
+
+    new Chart(highestPriceChartCanvas.getContext('2d'), { 
+        type: 'bar',
         data: {
-            labels: stocks[0].values.map(value => value.datetime),
+            labels: stocks[0].values.map,//(value => value.highest),
             datasets: stocks.map( stock => ({
                 label: stock.meta.symbol,
-                data: stock.values.map(value => parseFloat(value.high)),
-                backgroundColor:  getColor(stock.meta.symbol),
-                borderColor: getColor(stock.meta.symbol),
-            }))
+                data:  [165, 159, 280, 281, 356, 455, 540],//stock.values.map(value => parseFloat(value.high)),
+                //backgroundColor:  getBarColor(stock.meta.symbol),
+                //borderColor: getBarColor(stock.meta.symbol),
+                
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(201, 203, 207, 0.2)'
+                  ],
+                  borderColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(255, 159, 64)',
+                    'rgb(255, 205, 86)',
+                    'rgb(75, 192, 192)',
+                    'rgb(54, 162, 235)',
+                    'rgb(153, 102, 255)',
+                    'rgb(201, 203, 207)'
+                  ],
+                  borderWidth: 1 
+        }))
+           
         }
     });
-*/
+
     
     
     function getColor(stock){
@@ -62,9 +83,21 @@ async function main() {
             return 'rgba(166, 43, 158, 0.7)'
         }
     }
-    
-    
-                                                  
 
+    function getBarColor(stock){
+        if(stock === "GME"){
+            return 'rgba(61, 161, 61, 0.7)'
+        }
+        if(stock === "MSFT"){
+            return 'rgba(209, 4, 25, 0.7)'
+        }
+        if(stock === "DIS"){
+            return 'rgba(18, 4, 209, 0.7)'
+        }
+        if(stock === "BNTX"){
+            return 'rgba(166, 43, 158, 0.7)'
+        }
+    }
+   
 }
 main() 
